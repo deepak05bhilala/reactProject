@@ -5,15 +5,15 @@ import WatcherImage from '../components/WatcherImage';
 import PopupText from '../components/PopupText';
 
 const popupMessages = [
-    'Nice Aim',
-    'you got me',
-    'Ouch',
-  'You are so Beautiful',
+  //   'Nice Aim',
+  //   'you got me',
+  //   'Ouch',
+  // 'You are so Beautiful',
   'Will you come on Date with me ?',
-  'I will buy you IceCream',
-  'I cant stop thinking about you',
-  'kabhi mota nhi bolunga, I ',
-  ''
+  // 'I will buy you IceCream',
+  // 'I cant stop thinking about you',
+  // 'kabhi mota nhi bolunga ',
+
 ];
 
 export default function Home() {

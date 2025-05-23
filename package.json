@@ -3,15 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "homepage": "https://deepak05bhilala.github.io./reactProject",
-"scripts": {
-  "dev": "next dev",
-  "build": "next build",
-  "start": "next start"
-},
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
   "dependencies": {
     "framer-motion": "^12.12.1",
     "next": "15.1.8",
     "react": "^19.0.0",
+    "react-confetti": "^6.4.0",
     "react-dom": "^19.0.0"
   },
   "devDependencies": {

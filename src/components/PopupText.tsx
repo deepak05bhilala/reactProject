@@ -7,12 +7,34 @@ interface PopupTextProps {
   position: { x: number; y: number };
 }
 
-export default function PopupText({ text, position }: PopupTextProps) {
-  const [clampedPos, setClampedPos] = useState(position);
+function useWindowWidth() {
+  const [width, setWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 0);
 
   useEffect(() => {
-    const margin = 80; // buffer space from edges
-    const x = Math.max(margin, Math.min(window.innerWidth - margin, position.x));
+    const handleResize = () => setWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  return width;
+}
+
+export default function PopupText({ text, position }: PopupTextProps) {
+const [clampedPos, setClampedPos] = useState(position);
+  const windowWidth = useWindowWidth();
+
+  const fontSize =
+    windowWidth < 480 ? '10px' :
+    windowWidth < 768 ? '12px' :
+    windowWidth < 1024 ? '14px' :
+    '16px';
+
+  useEffect(() => {
+    const margin = 0; // buffer space from edges
+    // const x = Math.max(margin, Math.min(window.innerWidth - margin, position.x));
+    // const y = Math.max(margin, Math.min(window.innerHeight - margin, position.y));
+
+        const x = Math.random() * 100 ;
     const y = Math.max(margin, Math.min(window.innerHeight - margin, position.y));
 
     setClampedPos({ x, y });
@@ -24,8 +46,8 @@ export default function PopupText({ text, position }: PopupTextProps) {
         position: 'fixed',
         top: clampedPos.y,
         left: clampedPos.x,
-        transform: 'translate(-50%, -50%)',
-        fontSize: '2rem',
+        transform: 'translate(0%, -50%)',
+        fontSize: fontSize,
         padding: '1rem 1.5rem',
         background: 'pink',
         color: 'white',

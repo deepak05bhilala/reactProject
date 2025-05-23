@@ -3,6 +3,7 @@ import { useState, useRef } from "react";
 import GameBox from "./components/Game";
 import WatcherImage from "./components/WatcherImage";
 import PopupText from "./components/PopupText";
+import ReactConfetti from "react-confetti";
 
 const popupMessages = ["I love you"];
 
@@ -67,6 +68,7 @@ function App() {
         position: "relative",
       }}
     >
+
       <WatcherImage />
       {popup && <PopupText text={popup.text} position={popup.position} />}
       <GameBox onHit={handleHit} ref={gameBoxRef} />

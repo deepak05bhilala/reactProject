@@ -9,6 +9,7 @@ export default function WatcherImage() {
         alignItems: 'center',
         gap: '8px',
         flexDirection: 'column',
+        color : 'black'
       }}
     >
       <span style={{ fontWeight: 'bold', fontSize: '1rem' }}>Prachi 🐼</span>
@@ -20,6 +21,7 @@ export default function WatcherImage() {
             width: '100px',
             borderRadius: '50%',
             border: '2px solid pink',
+
           }}
         />
         <span style={{ fontWeight: 'bold', fontSize: '1rem' }}>👀 Watching you!</span>

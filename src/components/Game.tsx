@@ -24,7 +24,7 @@ const GameBox = forwardRef<HTMLDivElement, GameBoxProps>(({ onHit }, ref) => {
       const y = Math.floor(Math.random() * (boxHeight - imageSize));
   
       setPosition({ x, y });
-    }, 1000);
+    }, 600);
   
     return () => clearInterval(interval);
   }, [isFrozen]);
@@ -37,9 +37,11 @@ const GameBox = forwardRef<HTMLDivElement, GameBoxProps>(({ onHit }, ref) => {
     setTimeout(() => {
       setShowHammer(false);
       setIsFrozen(false);
-    }, 1000);
+    }, 2000);
   };
 
+
+          
   return (
     <div
       ref={(node) => {
@@ -61,7 +63,9 @@ const GameBox = forwardRef<HTMLDivElement, GameBoxProps>(({ onHit }, ref) => {
       }}
     >
       {/* Moving Image */}
+      
       <div
+      
   style={{
     position: "absolute",
     left: `${position.x}px`,
@@ -106,6 +110,7 @@ const GameBox = forwardRef<HTMLDivElement, GameBoxProps>(({ onHit }, ref) => {
 
       {/* Hammer Image */}
       {showHammer && (
+        <div>
         <img
           src="/hammer.jpg"
           alt="Hammer Hit"
@@ -123,6 +128,8 @@ const GameBox = forwardRef<HTMLDivElement, GameBoxProps>(({ onHit }, ref) => {
           }}
           draggable={false}
         />
+
+        </div>
       )}
     </div>
   );
