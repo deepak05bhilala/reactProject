@@ -3,9 +3,8 @@ import { useState, useRef } from "react";
 import GameBox from "./components/Game";
 import WatcherImage from "./components/WatcherImage";
 import PopupText from "./components/PopupText";
-import ReactConfetti from "react-confetti";
 
-const popupMessages = ["I love you"];
+const popupMessages = [""];
 
 function App() {
   const [popup, setPopup] = useState<{
