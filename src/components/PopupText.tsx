@@ -50,7 +50,7 @@ const [clampedPos, setClampedPos] = useState(position);
         fontSize: fontSize,
         padding: '1rem 1.5rem',
         background: 'pink',
-        color: 'white',
+        color: 'black',
         borderRadius: '50% 50% 40% 40%',
         boxShadow: '0 0 10px rgba(255, 0, 100, 0.4)',
         pointerEvents: 'none',

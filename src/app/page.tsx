@@ -5,14 +5,21 @@ import WatcherImage from '../components/WatcherImage';
 import PopupText from '../components/PopupText';
 
 const popupMessages = [
-    'Ouch',
-    'Nice Aim',
-    'you got me',
-  'You are so Beautiful',
-  'Will you come on Date with me ?',
-  'I will buy you IceCream',
-  'I cant stop thinking about you',
+    'Welcome Prachi  🐼 ',
+    'Ouch !! it hurts 🤕',
+    'Nice Aim 🎯',
+    'you got me ',
+  'You are so Beautiful 👸',
+  'Every time you smile, my heart skips a beat 💝',
+  'Your smile is the prettiest 👩😊',
+  'Your eyes hold a world where I want to get lost 🌍',
+  'I cant stop thinking about you 🤔',
+  'I love being around you 😃',
+  'I think you should give me a chance 🫱🫲 ',
+  'My eyes brighten up whenever I see you 🤩',
+  'sachhii, line nhi maar raha 🥺',
 
+  'Will you come on Date with me ? 👧 🌹 👦 ',
 ];
 
 export default function Home() {
@@ -51,7 +58,7 @@ export default function Home() {
     );
 
     setPopup({ text: message, position: { x, y } });
-    setTimeout(() => setPopup(null), 1200);
+    setTimeout(() => setPopup(null), 1500);
   };
 
   return (
