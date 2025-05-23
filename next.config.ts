@@ -1,10 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',               // static export mode
-  basePath: '/reactProject',      // repo name here
-  assetPrefix: '/reactProject/',  // repo name with trailing slash
+  output: 'export',                // ✅ Required for static export
+  basePath: '/reactProject',      // ✅ Your GitHub repo name
+  assetPrefix: '/reactProject/',  // ✅ Ensures assets load correctly
   images: {
-    unoptimized: true,            // disable image optimization for static export
+    unoptimized: true,            // ✅ Required for static export to work with <Image />
   },
 };
 
