@@ -1,11 +1,9 @@
 import React, { forwardRef, useState, useEffect, useRef } from "react";
-import Image  from "next/image";
+import Image from "next/image";
 
 interface GameBoxProps {
   onHit: () => void;
 }
-
-const hammerImg = "/hammer.jpg"; // hammer image path in public folder
 
 const GameBox = forwardRef<HTMLDivElement, GameBoxProps>(({ onHit }, ref) => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -34,11 +32,8 @@ const GameBox = forwardRef<HTMLDivElement, GameBoxProps>(({ onHit }, ref) => {
 
   const handleHit = () => {
     onHit();
-
     setShowHammer(true);
-    setTimeout(() => {
-      setShowHammer(false);
-    }, 1000); // hammer stays visible 1s without fading
+    setTimeout(() => setShowHammer(false), 1000);
   };
 
   return (
@@ -61,7 +56,7 @@ const GameBox = forwardRef<HTMLDivElement, GameBoxProps>(({ onHit }, ref) => {
         backgroundColor: "#fff",
       }}
     >
-      {/* Moving Image with text overlay */}
+      {/* Moving Image */}
       <div
         style={{
           position: "absolute",
@@ -74,18 +69,18 @@ const GameBox = forwardRef<HTMLDivElement, GameBoxProps>(({ onHit }, ref) => {
         }}
       >
         <Image
-            src="/my-image.jpg"
-            alt="My Moving"
-            style={{
-                width: "80px",
-                height: "80px",
-                cursor: "pointer",
-                userSelect: "none",
-                pointerEvents: "auto",
-                zIndex: 10,
-            }}
-            onClick={handleHit}
-            draggable={false}
+          src="/reactProject/my-image.jpg" // ✅ Adjusted for GitHub Pages
+          alt="My Moving"
+          width={80}
+          height={80}
+          style={{
+            cursor: "pointer",
+            userSelect: "none",
+            pointerEvents: "auto",
+            zIndex: 10,
+          }}
+          onClick={handleHit}
+          draggable={false}
         />
         <div
           style={{
@@ -103,46 +98,28 @@ const GameBox = forwardRef<HTMLDivElement, GameBoxProps>(({ onHit }, ref) => {
         </div>
       </div>
 
-      {/* Hammer shown ON the moving image */}
+      {/* Hammer Image */}
       {showHammer && (
-        <img
-          src={hammerImg}
+        <Image
+          src="/reactProject/hammer.jpg" // ✅ Adjusted for GitHub Pages
           alt="Hammer Hit"
+          width={80}
+          height={80}
           style={{
             position: "absolute",
             left: position.x,
             top: position.y,
-            width: "80px",
-            height: "80px",
             pointerEvents: "none",
             userSelect: "none",
-            opacity: 1, // fully visible
+            opacity: 1,
             zIndex: 20,
           }}
+          draggable={false}
         />
       )}
-
-      {/* Remove animation for now */}
-      {/* <style>{`
-        @keyframes hammerSwing {
-          0% {
-            transform: rotate(-45deg) scale(0.7);
-            opacity: 0;
-          }
-          50% {
-            transform: rotate(15deg) scale(1.2);
-            opacity: 1;
-          }
-          100% {
-            transform: rotate(0deg) scale(1);
-            opacity: 0;
-          }
-        }
-      `}</style> */}
     </div>
   );
 });
 
 GameBox.displayName = "GameBox";
-
 export default GameBox;
