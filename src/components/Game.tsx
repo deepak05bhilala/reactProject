@@ -1,4 +1,5 @@
 import React, { forwardRef, useState, useEffect, useRef } from "react";
+import Image  from "next/image";
 
 interface GameBoxProps {
   onHit: () => void;
@@ -72,19 +73,19 @@ const GameBox = forwardRef<HTMLDivElement, GameBoxProps>(({ onHit }, ref) => {
           pointerEvents: "none",
         }}
       >
-        <img
-          src="/my-image.jpg"
-          alt="My Moving"
-          style={{
-            width: "80px",
-            height: "80px",
-            cursor: "pointer",
-            userSelect: "none",
-            pointerEvents: "auto",
-            zIndex: 10,
-          }}
-          onClick={handleHit}
-          draggable={false}
+        <Image
+            src="/my-image.jpg"
+            alt="My Moving"
+            style={{
+                width: "80px",
+                height: "80px",
+                cursor: "pointer",
+                userSelect: "none",
+                pointerEvents: "auto",
+                zIndex: 10,
+            }}
+            onClick={handleHit}
+            draggable={false}
         />
         <div
           style={{

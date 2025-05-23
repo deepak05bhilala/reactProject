@@ -1,4 +1,5 @@
 'use client';
+import Image from "next/image";
 
 export default function WatcherImage() {
   return (
@@ -13,8 +14,8 @@ export default function WatcherImage() {
     >
       <span style={{ fontWeight: 'bold', fontSize: '1rem' }}>Prachi 🐼</span>
       <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-        <img
-          src="/her-image.jpg"
+        <Image
+          src="/reactProject/her-image.jpg"
           alt="Her"
           style={{
             width: '100px',
