@@ -19,7 +19,7 @@ const popupMessages = [
   'My eyes brighten up whenever I see you 🤩',
   'sachhii, line nhi maar raha 🥺',
 
-  'Will you come on Date with me ? 👧 🌹 👦 ',
+  'I’d love to take you out, will you go on a date with me? 👧 🌹 👦 ',
 ];
 
 export default function Home() {
