@@ -11,7 +11,7 @@ export default function PopupText({ text, position }: PopupTextProps) {
   const [clampedPos, setClampedPos] = useState(position);
 
   useEffect(() => {
-    const margin = 100; // buffer space from edges
+    const margin = 80; // buffer space from edges
     const x = Math.max(margin, Math.min(window.innerWidth - margin, position.x));
     const y = Math.max(margin, Math.min(window.innerHeight - margin, position.y));
 
