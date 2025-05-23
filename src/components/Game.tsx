@@ -37,7 +37,7 @@ const GameBox = forwardRef<HTMLDivElement, GameBoxProps>(({ onHit }, ref) => {
     setShowHammer(true);
     setTimeout(() => {
       setShowHammer(false);
-    }, 1000);
+    }, 1000); // hammer stays visible 1s without fading
   };
 
   return (
@@ -115,13 +115,14 @@ const GameBox = forwardRef<HTMLDivElement, GameBoxProps>(({ onHit }, ref) => {
             height: "80px",
             pointerEvents: "none",
             userSelect: "none",
-            animation: "hammerSwing 0.8s ease forwards",
+            opacity: 1, // fully visible
             zIndex: 20,
           }}
         />
       )}
 
-      <style>{`
+      {/* Remove animation for now */}
+      {/* <style>{`
         @keyframes hammerSwing {
           0% {
             transform: rotate(-45deg) scale(0.7);
@@ -136,9 +137,11 @@ const GameBox = forwardRef<HTMLDivElement, GameBoxProps>(({ onHit }, ref) => {
             opacity: 0;
           }
         }
-      `}</style>
+      `}</style> */}
     </div>
   );
 });
+
+GameBox.displayName = "GameBox";
 
 export default GameBox;
