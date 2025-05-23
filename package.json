@@ -4,7 +4,8 @@
   "private": true,
   "homepage": "https://deepak05bhilala.github.io/love-game",
 "scripts": {
-  "predeploy": "next build && next export",
+  "build": "next build",
+  "predeploy": "next build",
   "deploy": "gh-pages -d out"
 }
 ,
