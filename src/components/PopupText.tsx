@@ -8,10 +8,11 @@ interface PopupTextProps {
 }
 
 function useWindowWidth() {
-  const [width, setWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 0);
+  const [width, setWidth] = useState(0);
 
   useEffect(() => {
     const handleResize = () => setWidth(window.innerWidth);
+    handleResize();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
@@ -24,38 +25,44 @@ const [clampedPos, setClampedPos] = useState(position);
   const windowWidth = useWindowWidth();
 
   const fontSize =
-    windowWidth < 480 ? '10px' :
-    windowWidth < 768 ? '12px' :
-    windowWidth < 1024 ? '14px' :
-    '16px';
+    windowWidth < 480 ? '18px' :
+    windowWidth < 768 ? '22px' :
+    windowWidth < 1024 ? '26px' :
+    '30px';
+
+  const popupWidth = Math.min(windowWidth * 0.8, 320);
 
   useEffect(() => {
-    const margin = 0; // buffer space from edges
-    // const x = Math.max(margin, Math.min(window.innerWidth - margin, position.x));
-    // const y = Math.max(margin, Math.min(window.innerHeight - margin, position.y));
+    const margin = 12;
+    const vw = window.innerWidth;
+    const vh = window.innerHeight;
+    const width = Math.min(vw * 0.8, 320);
 
-        const x = Math.random() * 100 ;
-    const y = Math.max(margin, Math.min(window.innerHeight - margin, position.y));
+    const maxX = Math.max(margin, vw - width - margin);
+    const x = Math.min(Math.max(margin, position.x), maxX);
+    const y = Math.min(Math.max(60, position.y), vh - 60);
 
     setClampedPos({ x, y });
   }, [position]);
 
   return (
     <div
+      className="love-popup"
       style={{
         position: 'fixed',
         top: clampedPos.y,
         left: clampedPos.x,
         transform: 'translate(0%, -50%)',
         fontSize: fontSize,
-        padding: '1rem 1.5rem',
-        background: 'pink',
-        color: 'black',
-        borderRadius: '50% 50% 40% 40%',
-        boxShadow: '0 0 10px rgba(255, 0, 100, 0.4)',
+        lineHeight: 1.3,
+        padding: '0.7rem 1.2rem',
+        borderRadius: '18px',
+        maxWidth: `${popupWidth}px`,
+        textAlign: 'center',
+        whiteSpace: 'normal',
+        wordBreak: 'break-word',
         pointerEvents: 'none',
         zIndex: 1000,
-        whiteSpace: 'nowrap',
       }}
     >
       ❤️ {text}

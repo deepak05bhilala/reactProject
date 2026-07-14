@@ -12,10 +12,10 @@ export default function WatcherImage() {
         color : 'black'
       }}
     >
-      <span style={{ fontWeight: 'bold', fontSize: '1rem' }}>Prachi 🐼</span>
+      <span style={{ fontWeight: 'bold', fontSize: '1rem' }}>Pragya 💜</span>
       <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
         <img
-          src="/her-image.jpg"
+          src="/herImage.jpg"
           alt="Her"
           style={{
             width: '100px',

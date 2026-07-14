@@ -4,6 +4,15 @@ interface GameBoxProps {
   onHit: () => void;
 }
 
+const hitParticles = [
+  { emoji: "💖", dx: "-38px", dy: "-30px" },
+  { emoji: "✨", dx: "40px", dy: "-26px" },
+  { emoji: "💕", dx: "-30px", dy: "34px" },
+  { emoji: "⭐", dx: "34px", dy: "36px" },
+  { emoji: "💗", dx: "0px", dy: "-46px" },
+  { emoji: "✨", dx: "0px", dy: "44px" },
+];
+
 const GameBox = forwardRef<HTMLDivElement, GameBoxProps>(({ onHit }, ref) => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [showHammer, setShowHammer] = useState(false);
@@ -108,27 +117,25 @@ const GameBox = forwardRef<HTMLDivElement, GameBoxProps>(({ onHit }, ref) => {
   </div>
 </div>
 
-      {/* Hammer Image */}
+      {/* Hit effect */}
       {showHammer && (
-        <div>
-        <img
-          src="/hammer.jpg"
-          alt="Hammer Hit"
-          width={80}
-          height={80}
+        <div
+          className="hit-effect"
           style={{
-            position: "absolute",
             left: `${position.x}px`,
             top: `${position.y}px`,
-            pointerEvents: "none",
-            userSelect: "none",
-            opacity: 1,
-            zIndex: 20,
-            transition: "left 0.3s ease, top 0.3s ease",
           }}
-          draggable={false}
-        />
-
+        >
+          <span className="hit-burst">💥</span>
+          {hitParticles.map((p, i) => (
+            <span
+              key={i}
+              className="hit-particle"
+              style={{ "--dx": p.dx, "--dy": p.dy } as React.CSSProperties}
+            >
+              {p.emoji}
+            </span>
+          ))}
         </div>
       )}
     </div>
