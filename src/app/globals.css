@@ -343,6 +343,22 @@ body {
   text-align: center;
 }
 
+.sorry-page-photo-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.sorry-page-photo {
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+  border-radius: 16px;
+  object-fit: cover;
+  box-shadow: 0 8px 24px rgba(120, 90, 140, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.9);
+}
+
 .sorry-letter-body {
   display: flex;
   flex-direction: column;

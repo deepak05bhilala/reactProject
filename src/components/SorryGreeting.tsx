@@ -56,6 +56,16 @@ export default function SorryGreeting() {
   return (
     <div className="sorry-card-wrapper">
       <div className={`sorry-card sorry-card-open${isLastPage ? ' sorry-card-closing' : ''}`}>
+        {step === 1 && (
+          <div className="sorry-page-photo-wrap sorry-text-line" style={{ animationDelay: '0.1s' }}>
+            <img
+              src="/pragya-photo.png"
+              alt="Pragya"
+              className="sorry-page-photo"
+            />
+          </div>
+        )}
+
         {!isLastPage && <h1 className="sorry-letter-heading">I&apos;m Sorry</h1>}
 
         <div className="sorry-letter-body">
