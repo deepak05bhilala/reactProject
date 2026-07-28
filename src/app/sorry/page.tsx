@@ -15,7 +15,10 @@ export default function SorryPage() {
     <div className="sorry-bg">
       <SorryGreeting />
       {mounted && (
-        <BackgroundMusic volume={0.25} src="/sorry-music.mp3" />
+        <BackgroundMusic
+          volume={0.25}
+          src="/dooron-dooron-unplugged-paresh-pahuja-128-kbps_UTek3MnV.mp3"
+        />
       )}
     </div>
   );
