@@ -3,20 +3,17 @@
 import { useState } from 'react';
 
 const apologyLines = [
-  'Hi Pragya,',
-  'I know my words hurt you deep. Please give me a chance to fix things.',
-  'I regret what I said. I have some unhealed parts in myself as well — I realise that now.',
-  "That day, I wasn't okay inside, but that doesn't make what I did okay. You didn't deserve to be spoken to that way.",
-  "I'm not asking you to forgive me right away. I just want you to know I'm sorry, and I want to make things right.",
-  'Take your time. 💜',
+  'I know my words hurt you deep, please give me a chance to fix things.',
+  'I regret what I said. I have something unhealed in myself as well, I realise that day...',
+  "I can't afford to lose you....",
 ];
 
 export default function SorryGreeting() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [step, setStep] = useState<'closed' | 'message' | 'closing'>('closed');
 
-  return (
-    <div className="sorry-card-wrapper">
-      {!isOpen ? (
+  if (step === 'closed') {
+    return (
+      <div className="sorry-card-wrapper">
         <div className="sorry-card sorry-card-closed">
           <div className="sorry-envelope-seal">💜</div>
           <h1 className="sorry-card-title">For Pragya</h1>
@@ -24,27 +21,56 @@ export default function SorryGreeting() {
           <button
             type="button"
             className="sorry-open-btn"
-            onClick={() => setIsOpen(true)}
+            onClick={() => setStep('message')}
           >
             Open card
           </button>
         </div>
-      ) : (
+      </div>
+    );
+  }
+
+  if (step === 'message') {
+    return (
+      <div className="sorry-card-wrapper">
         <div className="sorry-card sorry-card-open">
           <h1 className="sorry-letter-heading">I&apos;m Sorry</h1>
+          <p className="sorry-text-line sorry-text-line-static" style={{ animationDelay: '0.2s' }}>
+            Hi Pragya,
+          </p>
           <div className="sorry-letter-body">
             {apologyLines.map((line, i) => (
               <p
                 key={i}
                 className="sorry-text-line"
-                style={{ animationDelay: `${0.4 + i * 0.55}s` }}
+                style={{ animationDelay: `${0.5 + i * 0.55}s` }}
               >
                 {line}
               </p>
             ))}
           </div>
+          <button
+            type="button"
+            className="sorry-open-btn sorry-next-btn"
+            onClick={() => setStep('closing')}
+          >
+            Continue
+          </button>
         </div>
-      )}
+      </div>
+    );
+  }
+
+  return (
+    <div className="sorry-card-wrapper">
+      <div className="sorry-card sorry-card-open sorry-card-closing">
+        <p className="sorry-closing-text sorry-text-line" style={{ animationDelay: '0.3s' }}>
+          Take your time
+        </p>
+        <span className="sorry-closing-heart sorry-text-line" style={{ animationDelay: '0.9s' }}>
+          💜
+        </span>
+      </div>
     </div>
   );
 }
