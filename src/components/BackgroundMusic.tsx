@@ -2,7 +2,13 @@
 
 import { useEffect, useRef, useState } from 'react';
 
-export default function BackgroundMusic({ volume = 0.4 }: { volume?: number }) {
+export default function BackgroundMusic({
+  volume = 0.4,
+  src = '/radwimps-feat-official-lyric-video_KhBVeNla.mp3',
+}: {
+  volume?: number;
+  src?: string;
+}) {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [playing, setPlaying] = useState(false);
 
@@ -42,7 +48,7 @@ export default function BackgroundMusic({ volume = 0.4 }: { volume?: number }) {
 
   return (
     <>
-      <audio ref={audioRef} src="/radwimps-feat-official-lyric-video_KhBVeNla.mp3" loop preload="auto" />
+      <audio ref={audioRef} src={src} loop preload="auto" />
       <button
         onClick={toggle}
         aria-label={playing ? 'Pause music' : 'Play music'}
