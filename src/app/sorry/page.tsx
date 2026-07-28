@@ -13,12 +13,8 @@ export default function SorryPage() {
 
   return (
     <div className="sorry-bg">
-      {mounted && (
-        <>
-          <BackgroundMusic volume={0.25} />
-          <SorryGreeting />
-        </>
-      )}
+      <SorryGreeting />
+      {mounted && <BackgroundMusic volume={0.25} />}
     </div>
   );
 }
