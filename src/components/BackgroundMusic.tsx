@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 
-export default function BackgroundMusic() {
+export default function BackgroundMusic({ volume = 0.4 }: { volume?: number }) {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [playing, setPlaying] = useState(false);
 
@@ -10,7 +10,7 @@ export default function BackgroundMusic() {
     const audio = audioRef.current;
     if (!audio) return;
 
-    audio.volume = 0.4;
+    audio.volume = volume;
 
     // Browsers block audio autoplay until the user interacts with the page,
     // so we wait for the first tap/click instead of calling play() on mount
@@ -24,7 +24,7 @@ export default function BackgroundMusic() {
     window.addEventListener('pointerdown', startOnInteraction, { once: true });
 
     return () => window.removeEventListener('pointerdown', startOnInteraction);
-  }, []);
+  }, [volume]);
 
   const toggle = () => {
     const audio = audioRef.current;

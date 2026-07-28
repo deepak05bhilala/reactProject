@@ -176,3 +176,141 @@ body {
   0%   { transform: translate(0%, -50%) scale(0.5); opacity: 0; }
   100% { transform: translate(0%, -50%) scale(1); opacity: 1; }
 }
+
+/* Sorry greeting card */
+.sorry-bg {
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+  background: linear-gradient(
+    -45deg,
+    #f3eef8,
+    #ede4f5,
+    #f8e8ee,
+    #e8dff5,
+    #f5eef0
+  );
+  background-size: 400% 400%;
+  animation: sorryGradientShift 24s ease infinite;
+}
+
+@keyframes sorryGradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.sorry-card-wrapper {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 420px;
+}
+
+.sorry-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  box-shadow: 0 12px 40px rgba(120, 90, 140, 0.15);
+  border: 1px solid rgba(180, 150, 200, 0.2);
+  padding: 2rem 1.75rem;
+  text-align: center;
+}
+
+.sorry-card-closed {
+  animation: cardClosedIn 0.6s ease-out;
+}
+
+.sorry-card-open {
+  animation: cardOpen 0.7s cubic-bezier(0.18, 0.89, 0.32, 1.15) forwards;
+  text-align: left;
+}
+
+@keyframes cardClosedIn {
+  0% { transform: scale(0.92); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes cardOpen {
+  0% { transform: perspective(800px) rotateX(-8deg) scale(0.95); opacity: 0.6; }
+  100% { transform: perspective(800px) rotateX(0deg) scale(1); opacity: 1; }
+}
+
+.sorry-envelope-seal {
+  font-size: 2.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.sorry-card-title {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #7b5a8c;
+  margin: 0 0 0.25rem;
+}
+
+.sorry-card-subtitle {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.95rem;
+  color: #9a8499;
+  margin: 0 0 1.5rem;
+}
+
+.sorry-open-btn {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, #b18cff 0%, #c97ba8 100%);
+  border: none;
+  border-radius: 999px;
+  padding: 0.85rem 2rem;
+  cursor: pointer;
+  min-height: 48px;
+  min-width: 160px;
+  box-shadow: 0 6px 20px rgba(150, 100, 160, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.sorry-open-btn:active {
+  transform: scale(0.98);
+}
+
+.sorry-letter-heading {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #7b5a8c;
+  margin: 0 0 1.25rem;
+  text-align: center;
+}
+
+.sorry-letter-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.sorry-text-line {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: #4a3f52;
+  margin: 0;
+  opacity: 0;
+  animation: sorryLineFadeIn 0.8s ease forwards;
+}
+
+@media (min-width: 480px) {
+  .sorry-text-line {
+    font-size: 1.05rem;
+  }
+}
+
+@keyframes sorryLineFadeIn {
+  0% { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
