@@ -3,10 +3,14 @@
 import { useState } from 'react';
 
 const apologyLines = [
-  'I know my words hurt you deep, please give me a chance to fix things.',
-  'I regret what I said. I have something unhealed in myself as well, I realise that day...',
-  "I can't afford to lose you....",
+  "I know my words hurt you deeply, and I'm truly sorry. Please give me a chance to make things right.",
+  "I regret what I said. Looking back, I realise I have some unhealed parts of myself that I need to work on. I wasn't okay that day, but that's not an excuse. You didn't deserve to be spoken to the way I spoke to you.",
+  "I didn't realise immediately how much I had hurt you, but I understand now what I messed up, and I genuinely regret it.",
+  "I'm not asking you to forgive me immediately. I just want you to know that I'm truly sorry, and I'm willing to put in the effort to rebuild the trust I've broken.",
+  "I can't afford to lose you, Pragya. You mean a lot to me, and I sincerely hope you'll understand where I'm coming from. More importantly, I hope you'll give me the chance to show you through my actions that I can do better.",
 ];
+
+const closingLine = "Take all the time you need. I'll respect your space.";
 
 export default function SorryGreeting() {
   const [step, setStep] = useState<'closed' | 'message' | 'closing'>('closed');
@@ -65,7 +69,7 @@ export default function SorryGreeting() {
     <div className="sorry-card-wrapper">
       <div className="sorry-card sorry-card-open sorry-card-closing">
         <p className="sorry-closing-text sorry-text-line" style={{ animationDelay: '0.3s' }}>
-          Take your time
+          {closingLine}
         </p>
         <span className="sorry-closing-heart sorry-text-line" style={{ animationDelay: '0.9s' }}>
           💜
