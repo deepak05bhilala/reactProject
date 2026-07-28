@@ -4,9 +4,10 @@ import { useState } from 'react';
 
 const apologyLines = [
   'Hi Pragya,',
-  "I'm truly sorry for how I spoke to you. I was rude and disrespectful, and that wasn't okay.",
-  "You didn't deserve to be treated that way. I see that now, and I regret it.",
-  "I'm not asking you to forgive me right away — I just wanted you to know I'm sorry, and I'm trying to be better.",
+  'I know my words hurt you deep. Please give me a chance to fix things.',
+  'I regret what I said. I have some unhealed parts in myself as well — I realise that now.',
+  "That day, I wasn't okay inside, but that doesn't make what I did okay. You didn't deserve to be spoken to that way.",
+  "I'm not asking you to forgive me right away. I just want you to know I'm sorry, and I want to make things right.",
   'Take your time. 💜',
 ];
 
