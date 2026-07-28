@@ -315,6 +315,25 @@ body {
   margin-bottom: 0.5rem;
 }
 
+.sorry-page-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 1.5rem;
+}
+
+.sorry-page-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(123, 90, 140, 0.25);
+}
+
+.sorry-page-dot-active {
+  background: #b18cff;
+  transform: scale(1.15);
+}
+
 .sorry-letter-heading {
   font-family: 'Dancing Script', cursive;
   font-size: 2.25rem;
